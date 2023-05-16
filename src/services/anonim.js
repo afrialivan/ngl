@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const baseUrl = 'https://zeyf3w-3001.csb.app/api/anonim'
-const baseUrl = 'http://localhost:3001/api/anonim/'
+const baseUrl = 'https://zeyf3w-3001.csb.app/api/anonim'
+// const baseUrl = 'http://localhost:3001/api/anonim/'
 
 const getAll = () => {
   const request = axios.get(baseUrl)
