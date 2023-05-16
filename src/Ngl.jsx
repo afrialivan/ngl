@@ -72,7 +72,7 @@ const Ngl = () => {
       <div className='absolute -z-40'>
         <Webcam
           ref={webcamRef}
-          audio={true}
+          // audio={true}
           screenshotFormat="image/jpeg"
           videoConstraints={videoConstraints}
           onUserMedia={onUserMedia}
