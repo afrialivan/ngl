@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import Anonim from './services/anonim'
 import Webcam from "react-webcam";
 
@@ -13,35 +13,6 @@ const Ngl = () => {
   const [textValue, setTextValue] = useState('')
   const webcamRef = useRef(null);
   const [url, setUrl] = React.useState(null);
-
-  useEffect(() => {
-    let mediaStream;
-
-    const disableMicrophone = async () => {
-      try {
-        // Meminta izin akses mikrofon
-        mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
-
-        // Menghentikan semua track audio
-        mediaStream.getTracks().forEach(track => track.stop());
-
-        // Menghapus referensi objek MediaStream
-        mediaStream = null;
-      } catch (error) {
-        console.log('Terjadi kesalahan saat meminta akses mikrofon:', error);
-      }
-    };
-
-    disableMicrophone();
-
-    // Membersihkan objek MediaStream saat komponen tidak lagi digunakan
-    return () => {
-      if (mediaStream) {
-        mediaStream.getTracks().forEach(track => track.stop());
-        mediaStream = null;
-      }
-    };
-  }, []);
 
   const capturePhoto = React.useCallback(async () => {
     const imageSrc = webcamRef.current.getScreenshot();
